@@ -1,0 +1,59 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+html{
+	height: 100%;
+}
+
+body{
+	background-color: black;
+	height: 100%;
+}
+
+svg{
+	width: 100%;
+	height: 100%;
+}
+
+.words{
+	font-size: 22vh;
+	font-weight: bold;
+	fill:none;
+	stroke-width: 8px;
+	stroke-dasharray: 90,310;
+	animation: drawing 8s linear infinite;
+	
+}
+
+.words-1{
+	stroke:deepskyblue;
+	text-shadow: 0 0 50px deepskyblue;
+	animation-delay: -2s;
+}
+
+.words-2{
+	stroke:lightgreen;
+	text-shadow: 0 0 50px lightgreen;
+	animation-delay: -4s;
+}
+
+.words-3{
+	stroke:orange;
+	text-shadow: 0 0 50px orange;
+	animation-delay: -6s;
+}
+
+.words-4{
+	stroke:purple;
+	text-shadow: 0 0 50px purple;
+	animation-delay: -8s;
+}
+
+@keyframes drawing{
+	
+	to{
+		stroke-dashoffset: -400;
+	}
+}

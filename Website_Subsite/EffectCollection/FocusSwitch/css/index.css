@@ -1,0 +1,123 @@
+* {
+	/* é¡µé¢åˆå§‹åŒ– æ¸…é™¤å…ƒç´ é¢å†…å¤–è¾¹è· */
+	padding: 0;
+	margin: 0;
+	/* ç›’å­æ¨¡åž‹ æ”¹å˜ç›’å­çš„å®½åº¦çš„è®¡ç®—æ–¹å¼ */
+	box-sizing: border-box;
+}
+body {
+	/* å¼¹æ€§å¸ƒå±€ è®©é¡µé¢å…ƒç´ åž‚ç›´+æ°´å¹³å±…ä¸­ */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* è®©é¡µé¢é«˜åº¦å æµè§ˆå™¨å¯è§†åŒºåŸŸçš„é«˜åº¦ */
+	height: 100vh;
+	background-color: #393d49;
+}
+.container {
+	width: 1000px;
+	height: 500px;
+}
+.container ul {
+	/* æ¸…é™¤liå…ƒç´ å‰é¢çš„å°é»‘ç‚¹ */
+	list-style: none;
+	/* ç›¸å¯¹å®šä½ */
+	position: relative;
+	width: 100%;
+	height: 100%;
+	/* å¼¹æ€§å¸ƒå±€  */
+	display: flex;
+	/* è®©å­å…ƒç´ (å¼¹æ€§é¡¹ç›®)å¹³å‡åˆ†é…å®½åº¦ */
+	justify-content: space-around;
+	/* è¿™ä¸ªå±žæ€§æ˜¯è®©å­å…ƒç´ åœ¨äº¤å‰è½´(Yè½´)çš„æœ€ä¸‹é¢æŽ’åˆ— */
+	/* é»˜è®¤åœ¨æœ€ä¸Šé¢  åŠ äº†å°±åœ¨æœ€ä¸‹é¢*/
+	align-items: flex-end;
+}
+/* å°å›¾ç‰‡ start */
+.container ul li {
+	width: 200px;
+	/* é¼ æ ‡ç§»å…¥å˜å°æ‰‹ */
+	cursor: pointer;
+}
+.container ul li img {
+	width: 100%;
+	/* åŠ ä¸ªé€æ˜Žè¾¹æ¡† è®©å›¾ç‰‡çœ‹èµ·æ¥æœ‰è·ç¦» */
+	border: 5px solid transparent;
+}
+/* å°å›¾ç‰‡ end */
+
+/* å¤§å›¾ç‰‡ start */
+.container ul .bigImg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1000px;
+	height: 400px;
+	/* ç»™å¤§å›¾ç‰‡ ä¹ŸåŠ ä¸€ä¸ªé€æ˜Žè¾¹æ¡† ä¸ä¸ºäº†å•¥ å°±æ˜¯ä¸ºäº†å’Œå°å›¾ç‰‡å¯¹ç§° */
+	border: 5px solid transparent;
+	/* èƒŒæ™¯   å›¾ç‰‡è·¯å¾„   no-repeatæ˜¯è®©å›¾ç‰‡ä¸é‡å¤ é»˜è®¤æ˜¯é‡å¤çš„ */
+	background: url(../img/1.jpg) no-repeat;
+	/* å›¾ç‰‡ä»¥å®½åº¦ä¸ºæœ€å¤§é“ºæ»¡æ•´ä¸ªç›’å­ */
+	background-size: contain;
+	transition: all 0.5s;
+}
+/* å¤§å›¾ç‰‡ end */
+
+/* ç§»åŠ¨æ¡† start */
+.container ul .frame {
+	position: absolute;
+	left: 0;
+	bottom: 4px;
+	width: 200px;
+	height: 80px;
+	border: 5px solid salmon;
+	/* è¿™é‡Œæœ‰bug ä¸€ç›´é—ªçƒ è¿™ä¸ªé—®é¢˜çš„åŽŸå› å°±æ˜¯ è¿™ä¸ªç§»åŠ¨æ¡†è™½ç„¶æ²¡æœ‰èƒŒæ™¯è‰² ä½†æ˜¯è¦†ç›–äº†è¿™ä¸ªå›¾ç‰‡ */
+	/* åŠ è¿™ä¸ªå±žæ€§å°±å¯ä»¥äº† è®©è¿™ä¸ªç§»åŠ¨æ¡† ä¸åœ¨è¢«é¼ æ ‡æ•æ‰åˆ° */
+	pointer-events: none;
+	/* åŠ è¿‡æ¸¡ */
+	transition: all 0.5s;
+}
+/* ç”¨ä¼ªå…ƒç´ åšä¸‰è§’ */
+.container ul .frame::before {
+	content: "";
+	position: absolute;
+	top: -19px;
+	/* calcæ–¹æ³•è‡ªåŠ¨è®¡ç®— è®©ä¸‰è§’ç›’å­æ°´å¹³å±…ä¸­ */
+	left: calc(50% - 15px);
+	width: 30px;
+	height: 15px;
+	background-color: salmon;
+	/* è¿™ä¸ªå±žæ€§æˆ‘åœ¨å¯¼èˆªæ é‚£ä¸€æœŸæœ‰è®² å¯ä»¥åŽ»çœ‹çœ‹ è¿™é‡Œå°±ä¸å•°å—¦äº† */
+	clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+/* ç§»åŠ¨æ¡† end */
+.container ul li:nth-child(1):hover ~ .bigImg {
+	background-image: url(../img/1.jpg);
+}
+.container ul li:nth-child(1):hover ~ .frame {
+	left: 0;
+}
+.container ul li:nth-child(2):hover ~ .bigImg {
+	background-image: url(../img/2.jpg);
+}
+.container ul li:nth-child(2):hover ~ .frame {
+	left: 200px;
+}
+.container ul li:nth-child(3):hover ~ .bigImg {
+	background-image: url(../img/3.jpg);
+}
+.container ul li:nth-child(3):hover ~ .frame {
+	left: 400px;
+}
+.container ul li:nth-child(4):hover ~ .bigImg {
+	background-image: url(../img/4.jpg);
+}
+.container ul li:nth-child(4):hover ~ .frame {
+	left: 600px;
+}
+.container ul li:nth-child(5):hover ~ .bigImg {
+	background-image: url(../img/5.jpg);
+}
+.container ul li:nth-child(5):hover ~ .frame {
+	left: 800px;
+}

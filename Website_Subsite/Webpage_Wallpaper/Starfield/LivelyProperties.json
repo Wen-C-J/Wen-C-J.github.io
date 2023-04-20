@@ -1,0 +1,54 @@
+{
+  "quantity": {
+    "max": 512,
+    "min": 64,
+    "tick": 449,
+    "text": "Quantity",
+    "type": "slider",
+    "value": 512
+  },
+  "warpFactor": {
+    "max": 10,
+    "min": 1,
+    "tick": 10,
+    "text": "Warp Factor",
+    "type": "slider",
+    "value": 5
+  },
+  "easing": {
+    "max": 10,
+    "min": 1,
+    "tick": 10,
+    "text": "Easing",
+    "type": "slider",
+    "value": 2
+  },
+  "speed": {
+    "max": 10,
+    "min": 1,
+    "tick": 10,
+    "text": "Speed",
+    "type": "slider",
+    "value": 1
+  },
+   "warpCheck": {
+    "type": "checkbox",
+    "value": false,
+    "text": "Warp"
+  },
+  "mouse": {
+    "type": "checkbox",
+    "value": true,
+    "text": "Mouse"
+  },
+  "starColor": {
+    "text": "Star",
+    "type": "color",
+    "value": "#FFFFFF"
+  },
+  "bgColor": {
+    "text": "BG",
+    "type": "color",
+    "value": "#000000"
+  }
+}

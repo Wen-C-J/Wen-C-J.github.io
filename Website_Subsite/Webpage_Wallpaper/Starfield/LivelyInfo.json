@@ -1,0 +1,14 @@
+{
+  "AppVersion": "0.9.5.1",
+  "Title": "Starfield",
+  "Thumbnail": "lively_t.jpg",
+  "Preview": "lively_p.gif",
+  "Desc": "Interactive starfield using Vui.js",
+  "Author": "Vincent Maglione",
+  "License": null,
+  "Contact": "https://codepen.io/bigsweater/pen/MyqZdQ",
+  "Type": 1,
+  "FileName": "starfield.html",
+  "Arguments": null,
+  "IsAbsolutePath": false
+}

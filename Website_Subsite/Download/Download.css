@@ -1,0 +1,27 @@
+body{
+	margin: 0;
+}
+#main{
+	width: 100%;
+	height: 2000px;
+	margin: 0;
+	padding: 60px 20px;
+	background-color: rgb(255,250,232);
+	float: left;		/* 设置浮动 */
+}
+a{
+	text-decoration: none;
+	width: auto;		/* 宽度自适应 */
+	height: auto;		/* 高度自适应 */
+	color: black;		/* 字体颜色 */
+	font-size: 50px;		/* 字体大小 */
+	text-align: center;		/* 文字居中 */
+	font-family: "楷体";		/* 字体 */
+	margin: 15px 15px;		/* 外边距 */
+	padding: 6px 80px;		/* 内边距 */
+	background-color: #ADFF2F;		/* 背景颜色 */
+	border-radius: 20px;			/* 圆角边框 */
+	border: 2px solid blueviolet;	/* 边框属性 */
+	box-shadow: 2px 2px 5px black;	/* 投影效果 */
+	float: left;
+}

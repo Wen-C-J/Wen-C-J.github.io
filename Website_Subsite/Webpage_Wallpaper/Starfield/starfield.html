@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Interactive Canvas Starfield (Vue component)</title>
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<template style="display:none;" id="starfield">
+  
+  <div class="starfield" :class="{ 'debug' : debug }" id="{{ ids.vid }}">
+    <canvas id="{{ ids.cid }}"></canvas>
+
+    <form v-if="debug" class="starfield-debug" style="display: none;">
+      <div>
+        <label for="isHyperspace">
+          <input type="checkbox" id="isHyperspace" v-model="hyperspace">Hyperspace
+        </label>
+
+        <label for="warpFactor">
+          | Warp Factor
+        </label>
+          <input type="number" name="warpFactor" id="warpFactor" placeholder="{{ warpFactor }}" min="1" max="1000" v-model="warpFactor" />
+      </div>
+
+      <div>
+        <label for="clickToWarp">
+          <input type="checkbox" id="clickToWarp" v-model="clickToWarp" @change="listeners">Click to warp
+        </label>
+      </div>
+
+      <div>
+        <label for="mouseAdjust">
+          <input type="checkbox" id="mouseAdjust" v-model="mouseAdjust" @change="listeners">React to mouse movements
+        </label>
+      </div>
+
+      <div>
+        <label for="tiltAdjust">
+          <input type="checkbox" id="tiltAdjust" v-model="tiltAdjust" @change="listeners">React to tilt events
+        </label>
+      </div>
+
+      <div>
+        <label for="easing">Easing: </label>
+        <input type="number" name="easing" id="easing" placeholder="{{ easing }}" min="0" max="100" step="1"
+               v-model="easing">
+      </div>
+
+      <div>
+        <label for="quantity">Number of stars: </label>
+        <input type="number" name="quantity" id="quantity" placeholder="{{ quantity }}" min="0" max="8192" step="1"
+               v-model="quantity"
+               @change="reset">
+      </div>
+
+      <div>
+        <label for="starColor">Star color:</label>
+        <input type="color" id="stColor" value="{{ compColors.stars }}" v-model="starColor" @change="reset" />
+      </div>
+
+      <div>
+        <label for="bgColor">Background color:</label>
+        <input type="color" id="bgColor" value="{{ compColors.bg }}" v-model="bgColor" />
+      </div>
+
+      <div>
+        <label for="speed">Speed: </label>
+        <input type="number" name="speed" id="speed" placeholder="{{ speed }}" min="-100" max="100" step="1"
+               v-model="speed">
+      </div>
+
+      <div style="margin-top: 20px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.25); font-size: 0.8em">
+         <input type="button" value="Start" style="color: #000" disabled="{{ state.running }}"
+         @click="start()"> |
+         <input type="button" value="Stop" style="color: #000" disabled="{{ !state.running }}"
+         @click="stop()"> |
+         <input type="button" value="Reset" style="color: #000"
+         @click="reset()">
+      </div>
+    </form>
+  </div><!-- /.starfield -->
+</template>
+
+<div id="app">
+  <starfield debug ></starfield>
+</div>
+<!-- partial -->
+<script src='js/vue.min.js'></script>
+<script src='js/one-color.js'></script>
+<script src='js/mainloop.min.js'></script>
+<script src='js/stats.min.js'></script>
+<script src='js/fastdom.min.js'></script>
+<script src="js/script.js"></script>
+
+<script type="text/javascript">
+	
+function livelyPropertyListener(name, val)
+{
+	switch(name) {
+    case "quantity":
+      document.getElementById('quantity').value = val;
+      EventCaller('quantity');    
+      break;
+    case "speed":
+      document.getElementById('speed').value = val;
+      EventCaller('speed');    
+      break;
+    case "easing":
+      document.getElementById('easing').value = val;
+      EventCaller('easing');    
+      break;
+    case "warpFactor":
+      document.getElementById('warpFactor').value = val;
+      EventCaller('warpFactor');    
+      break;  
+    case "warpCheck":   
+      document.getElementById('isHyperspace').checked = val;
+      EventCaller('isHyperspace');
+      break;
+    case "mouse":   
+      document.getElementById('mouseAdjust').checked = val;
+      EventCaller('mouseAdjust');
+
+      if(val == false)
+        EventCaller('reset');
+      break;
+    case "starColor":
+      document.getElementById('stColor').value = val;
+      EventCaller('stColor');
+      break;
+    case "bgColor":
+      document.getElementById('bgColor').value = val;
+      EventCaller('bgColor');
+      break;
+  }
+}
+
+function EventCaller(name)
+{
+    var evt = document.createEvent("HTMLEvents");
+    evt.initEvent("change", false, true);
+    document.getElementById(name).dispatchEvent(evt);
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>校园网断网判断</title>
+		<script type="text/javascript" src="Flashback_prevention.js"></script>
+		<style type="text/css">
+			body{
+				background: rgb(255,250,232);
+				margin: 0;
+				padding: 0;
+			}
+			#main{
+				background-color: cornflowerblue;
+				width: 80%;
+				margin: 50px auto;
+				box-shadow: 15px 20px 20px #000000;		/* 边框阴影 */
+				border-radius: 20px;		/* 圆角边框 */
+			}
+			#important{
+				background-color: wheat;
+				color: white;
+				width: 80%;
+				margin: 50px auto;
+				padding: 10px;
+				box-shadow: 15px 20px 20px red;		/* 边框阴影 */
+				border-radius: 20px;		/* 圆角边框 */
+			}
+			.txt_main{
+				font-size: 60px;		/* 字体大小 */
+				font-family: "楷体";	/* 字体 */
+				line-height: 100px;		/* 字符行高 */
+				text-align: center;		/* 对其方式 */
+				margin: auto;			/* 外边距 */
+				padding: 20px;			/* 内边距 */
+			}
+			.txt_important{
+				font-size: 40px;		/* 字体大小 */
+				color: red;				/* 字体颜色 */
+				font-family: "楷体";	/* 字体 */
+				margin: 20px;			/* 外边距 */
+				padding: 20px;			/* 内边距 */
+			}
+			.title_table{
+				height: 50px;
+				width: 90%;
+				background-color: cadetblue;
+				font-size: 50px;
+				line-height: 40px;		/* 字符行高 */
+				text-align: center;		/* 对其方式 */
+				font-family: "新宋体";	/* 字体 */
+				padding: 20px 00px 0px 20px;
+				margin: 1px auto;
+				box-shadow: 2px 4px 5px black;		/* 边框阴影 */
+				border-radius: 20px;		/* 圆角边框 */
+				 
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<p class="txt_main">
+				<script type="text/javascript">
+					var d=new Date()
+					var weekday=new Array(7)
+					weekday[0]="星期日"
+					weekday[1]="星期一"
+					weekday[2]="星期二"
+					weekday[3]="星期三"
+					weekday[4]="星期四"
+					weekday[5]="星期五"
+					weekday[6]="星期六"
+					document.write("今天是【 " + weekday[d.getDay()] + " 】<br>")
+					document.write("当前校园网状态<br>")
+					if (d.getDay()==1) {
+						document.write("【不断网】");
+					} else if (d.getDay()==2){
+						document.write("【不断网】")
+					} else if (d.getDay()==3){
+						document.write("【24点断网，不来网】")
+					} else if (d.getDay()==4){
+						document.write("【23点断网，24点来网】")
+					} else if (d.getDay()==5){
+						document.write("【不断网】")
+					} else if (d.getDay()==6){
+						document.write("【24点断网，不来网】")
+					} else if (d.getDay()==0){
+						document.write("【23点断网，24点来网】")
+					}
+					/* 
+					switch(1){
+						case"1":document.write("今天不断网");break;
+						case"2":document.write("今天不断网");break;
+						case"3":document.write("今天不断网");break;
+					} */
+				</script>
+			</p>
+		</div>
+		<div id="important">
+			<p class="title_table">断网时刻对照表</p>
+			<ul type="circle" class="txt_important">
+				<li>星期一 ： 不断网</li>
+				<li>星期二 ： 不断网</li>
+				<li>星期三 ： 24点断网，不来网</li>
+				<li>星期四 ： 23点断网，24点来网</li>
+				<li>星期五 ： 不断网</li>
+				<li>星期六 ： 24点断网，不来网</li>
+				<li>星期日 ： 23点断网，24点来网</li>
+			</ul>
+		</div>
+	</body>
+</html>

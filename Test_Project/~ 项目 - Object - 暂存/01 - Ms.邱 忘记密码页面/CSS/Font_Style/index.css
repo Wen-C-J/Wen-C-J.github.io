@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "方正呐喊字体";
+    src: url(./FontPackage_Chinese.TTF);
+}
+@font-face {
+    font-family: "通用字体";
+    src: url(./Universal.ttf);
+}

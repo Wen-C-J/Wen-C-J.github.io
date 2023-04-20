@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>猜数字 _ 小游戏</title>
+		<link rel="stylesheet" type="text/css" href="Game.css"/>
+		<script type="text/javascript" src="Game.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="First">
+				<h1 id="GameTime">Gmae_内部时钟！</h1>
+			</div>
+			<div id="Second">
+					<button id="Second_Left" type="button" onclick="Login()">登入</button>
+				<div id="Second_Middle">
+					猜数字小游戏
+				</div>
+					<button id="Second_Right" type="button" onclick="Game_Rule()">游戏<br>规则</button>
+			</div>
+			<div id="Third">
+				<div id="Third_Middle">
+					<p id="GameReminder">欢迎来到猜数字小游戏！</p>
+				</div>
+			</div>
+			<div id="Fourth">
+				<div id="Fourth_Left">
+					<div id="Fourth_Left_above">
+						<p>【当局取值范围】</p>
+					</div>
+					<div id="Fourth_Left_below">
+						<p id="ValueRange">游戏暂未开始</p>
+					</div>
+				</div>
+				<div id="Fourth_Right">
+					<button type="button" id="Fourth_Right_above" onclick="startGame()">
+						<p id="Button_StartGame">开始游戏</p>
+					</button>
+					<button type="button" id="Fourth_Right_below" onclick="GameOver()">
+						<p>放弃游戏</p>
+					</button>
+				</div>
+			</div>
+			<div id="Fifth">
+				<input type="text" id="Fifth_Left" onchange="EditBox()"/>
+				<div id="Fifth_Middle">
+					<p id="Round" style="font-size: 35px;">当前回合<br> ˶⚈Ɛ⚈˵</p>
+				</div>
+				<button type="button" id="Fifth_Right" onclick="SubmitResults()">
+					<p>提交</p>
+				</button>
+			</div>
+			<div id="Sixth">
+				<div id="Sixth_upper" onmouseout="onOut(this)" onmouseover="onOver(this)">
+					Hello World！
+				</div>
+				<button type="button" id="Sixth_lower"><a href="File/Game.zip">小游戏项目(未美化) _ Download</a></button>
+			</div>
+		</div>
+	</body>
+</html>

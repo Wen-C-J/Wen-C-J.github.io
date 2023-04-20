@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> -->
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <div style="width: 100%; height: 2000px; background-color: antiquewhite;">
+        <button id="Btn_">按钮</button>
+        <button id="Btn_">按钮</button>
+        <button id="Btn_">按钮</button>
+        <button id="Btn_">按钮</button>
+        <br>
+        <br>
+        <button id="Btn_Main">功能 - 集成版</button>
+        <button id="Btn_01">01 - 最简单的提示框</button>
+        <button id="Btn_02">02 - 图文并茂提示框</button>
+        <button id="Btn_03">03 - 动态图标提醒</button>
+        <button id="Btn_04">04 - 选择框（2个选项）</button>
+        <button id="Btn_05">05 - 3s后关闭</button>
+        <button id="Btn_06">06 - 多项选择（可自定义添加选项）</button>
+        <button id="Btn_07">07 - 3s后关闭</button>
+        <button id="Btn_08">08 - 3s后关闭</button>
+        <button id="Btn_09">09 - 3s后关闭</button>
+        <button id="Btn_10">10 - 3s后关闭</button>
+        <button id="Btn_11">11 - 3s后关闭</button>
+    </div>
+    <SCript>
+        // Main - swal弹窗集成版
+        Btn_Main.onclick = function(){
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                // 图标可选：warning  error  success  info
+                icon: "warning",
+                buttons: [true, "选项 - 01"],
+                dangerMode: true,
+                timer: 3000,
+            });
+        }
+
+        // 01 - 最简单的文本提示框
+        Btn_01.onclick = function(){
+            swal("Hello World");
+        }
+
+
+        // 02 - 图文并茂提示框
+        Btn_02.onclick = function(){
+            swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+        }
+
+
+        // 03 - 动态图标提醒
+        Btn_03.onclick = function(){
+            swal({
+                // warning  error  success  info
+                icon: "info",
+            });
+        }
+
+
+        // 04 - 选择框（2个选项）
+        Btn_04.onclick = function(){
+            swal({
+                buttons: [true, "Do it!"],
+            });
+        }
+
+
+        // 05 - 3s后关闭
+        Btn_05.onclick = function(){
+            swal("This modal will disappear soon!", {
+                buttons: false,
+                timer: 3000,
+            });
+
+        }
+
+
+        // 06 - 多项选择（可自定义添加选项）
+        Btn_06.onclick = function(){
+            swal("请做出你的选择。", {
+            buttons: {
+                cancel: "选项 - 03",
+                catch: {
+                text: "选项 -02",
+                value: "catch",
+                },
+                defeat: "选项 - 01",
+                Demo: "选项 - 01",
+            },
+            })
+            .then((value) => {
+            switch (value) {
+            
+                case "defeat":
+                swal("你选择了第一项");
+                break;
+            
+            case "catch":
+            swal("你选择了第二项");
+            alert("00")
+            break;
+            
+            case "Demo":
+            swal("你选择了第二项");
+            break;
+            
+            default:
+                swal("default - 你选择了取消！");
+            }
+            });
+        }
+
+
+    </SCript>
+</body>
+</html>
