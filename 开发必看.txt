@@ -1,0 +1,13 @@
+【网站主页】https://wen-c-j.github.io/
+
+【API指向 - 详解】：
+【ChatGPT】   =>    （https://wen-c-j.github.io/API/WebJump/index.html?request=ChatGPT）
+
+【Wen_GitHBU】   =>    （https://wen-c-j.github.io/）
+【Wen_MAIN】   =>    （https://212748w3o9.goho.co）
+【Wen_Test】   =>    （https://212748w3o9.goho.co/Test_Project/index.html）
+【ChatGPT】   =>    （https://www.wetab.link/）
+【Mum】   =>    （https://www.wetab.link/）
+【Dad】   =>    （https://www.wetab.link/）
+【Sister】   =>    （https://www.wetab.link/）
+【Demo】   =>    （https://www.baidu.com/）

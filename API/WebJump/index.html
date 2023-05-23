@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页跳转</title>
+    <script>
+
+        // 定义一个全局存储变量
+        var Hyperlink_Object = {}
+
+        // 发送一个Ajax请求，请求./HyperlinkData.json文件
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","./HyperlinkData.json",false);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                console.log("数据解析完成！");
+                // console.log(JSON.parse(xhr.responseText));
+                Hyperlink_Object = JSON.parse(xhr.responseText);
+            }
+        }
+        xhr.send();
+
+        // 获取超链接
+        var Hyperlink = decodeURIComponent(window.location.href);
+
+        console.log("超链接：",Hyperlink);
+        
+        // 尝试解析超链接中的传入参数，转换成数组！
+        try {
+            var AnalysisResults = Hyperlink.split("?")[1].split("=")
+        } catch (error) {   // 失败则赋予标记值！
+            var AnalysisResults = ["request","ParameterError"]    // 传入参数有误标记
+        }
+
+        console.log(AnalysisResults);
+
+        if (AnalysisResults[1] == "ParameterError") {    // 判断是否按格式传入参数
+            console.log("未按格式提交参数！格式：（http://超链接?request=超链接代号）");
+            window.location.href = "./404/404.html?错误 - Error ！&未正确按照格式提交数据！<br><p style='font-size: 10px;'>（http://超链接？request=超链接代号(key值)）</p>"
+        }else if(!(AnalysisResults[1] in Hyperlink_Object)){    // 判断传入参数是否有效
+            console.log("传入参数格式正确，但数据值无效！（未在object对象找到与传入代码对应的超链接值）");
+            window.location.href = "./404/404.html?错误 - Error ！&提交参数格式正确，但是数据值无效！"
+        }else{      // 否则
+            console.log("传入数据格式正确且有效！");
+            window.location.href = Hyperlink_Object[AnalysisResults[1]];
+        }
+    </script>
+</head>
+<body>
+    <h1>要是看到此界面，表示跳转失败，请关闭重试！</h1>
+</body>
+</html>

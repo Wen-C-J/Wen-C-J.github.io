@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Request Error</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="container">
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">4</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <span class="particle">0</span>
+    <article class="content">
+        <p><strong id="title">代码执行错误！</strong></p>
+        <p id="content">错误提示。</p>
+        <p>
+            <a href="https://wen-c-j.github.io/">
+                <button>返回主页.</button>
+            </a>
+        </p>
+    </article>
+</main>
+<script>
+    // 获取超链接中的location.href属性
+    var hyperlink = decodeURIComponent(window.location.href);
+
+    // 尝试解析超链接中的传入参数，转换成数组！
+    try {
+        var AnalysisResults = hyperlink.split("?")[1].split("&")
+    } catch (error) {   // 失败则赋予默认值！
+        var AnalysisResults = ["自定义标题","自定义提示内容（参数传入在超链接后面）<br>以（http://超链接?标题&内容）的格式编辑超链接传入参数！"]
+    }
+
+    // 渲染标题
+    document.querySelector("#title").innerHTML = AnalysisResults[0]
+    // 渲染内容
+    document.querySelector("#content").innerHTML = AnalysisResults[1]
+
+</script>
+</body>
+</html>
