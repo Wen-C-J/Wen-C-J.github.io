@@ -1,0 +1,4 @@
+〖功能〗制作了一个类GET请求的API接口，用于通过对代号跳转到自定义的超链接，其中代号对应的超链接能够在GitHUB端的代码进行更改，实现动态更改。
+〖链接〗链接跳转格式！
+〖超链接〗https://wen-c-j.github.io/API/WebJump/index.html?request=***
+〖注〗" ** " 代表跳转链接的代号！
