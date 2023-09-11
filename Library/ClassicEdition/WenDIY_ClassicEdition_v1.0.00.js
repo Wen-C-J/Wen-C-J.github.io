@@ -4,13 +4,13 @@
 // 创建link标签
 var link = document.createElement('link');
 link.rel = 'stylesheet';
-link.href = './MatchedFile/sweetalert2.min.css';
+link.href = 'https://wen-c-j.github.io/Library/ClassicEdition/MatchedFile/WenDIY_ClassicEdition_v1.0.00/sweetalert2.min.css';
 // 将link标签添加到head中
 document.getElementsByTagName('head')[0].appendChild(link);
 // 创建script标签
 var script = document.createElement('script');
 script.type = 'text/javascript';
-script.src = './MatchedFile/sweetalert2.min.js';
+script.src = 'https://wen-c-j.github.io/Library/ClassicEdition/MatchedFile/WenDIY_ClassicEdition_v1.0.00/sweetalert2.min.js';
 // 将script标签添加到head中
 document.getElementsByTagName('head')[0].appendChild(script);
 
