@@ -1,0 +1,113 @@
+{
+    "Setup":{
+        "TextSize":"20px"
+    },
+    "ordinaryChange":false,
+    "String":[{
+        "ID":"Str_Comma",
+        "name":["逗号<br>，","逗号<br>to English","逗号<br>to Chinese"],
+        "StrAlter":[[",","，"],",","，"],
+        "BtnClass":["configBtn_Default","configBtn_English","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_Period",
+        "name":["句号<br>。","句号<br>to English","句号<br>to Chinese"],
+        "StrAlter":[["\\.","。"],".","。"],
+        "BtnClass":["configBtn_Default","configBtn_English","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{ 
+        "ID":"Str_Colon",
+        "name":["冒号<br>:","冒号<br>to English","冒号<br>to Chinese"],
+        "StrAlter":[[":","："],":","："],
+        "BtnClass":["configBtn_Default","configBtn_English","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_Semicolon",
+        "name":["分号<br>;","分号<br>to English","分号<br>to Chinese"],
+        "StrAlter":[[";","；"],";","；"],
+        "BtnClass":["configBtn_Default","configBtn_English","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_Sigh",
+        "name":["感叹号<br>!","感叹号<br>to English","感叹号<br>to Chinese"],
+        "StrAlter":[["!","！"],"!","！"],
+        "BtnClass":["configBtn_Default","configBtn_English","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_LeftBracket",
+        "name":["括号 (左)<br>(","括号 (左)<br>to English","括号 (左)<br>to Chinese"],
+        "StrAlter":[["\\(","（"],"(","（"],
+        "BtnClass":["configBtn_Default","configBtn_English","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_RightBracket",
+        "name":["括号 (右)<br>)","括号 (右)<br>to English","括号 (右)<br>to Chinese"],
+        "StrAlter":[["\\)","）"],")","）"],
+        "BtnClass":["configBtn_Default","configBtn_English","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_FloatQuotationMark",
+        "name":["单引号<br>‘ and ’","单引号<br>to English"],
+        "StrAlter":[["‘","’"],"'"],
+        "BtnClass":["configBtn_Default","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_DoubleQuotationMark",
+        "name":["双引号<br>“ and ”","双引号<br>to English"],
+        "StrAlter":[["“","”"],"\""],
+        "BtnClass":["configBtn_Default","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_Crossing",
+        "name":["中横线<br>-","中横线<br>to “ - ”","中横线<br>to “ 一 ”"],
+        "StrAlter":[["-","一"],"-","一"],
+        "BtnClass":["configBtn_Default","configBtn_English","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_Slash",
+        "name":["斜杠<br>\\ and /","斜杠<br>to “ \\ ”","斜杠<br>to “ / ”"],
+        "StrAlter":[["\\\\","/"],"\\","/"],
+        "BtnClass":["configBtn_Default","configBtn_English","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_Tabs",
+        "name":["制表符","删除<br>制表符"],
+        "StrAlter":["\\t",""],
+        "BtnClass":["configBtn_Default","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_Linefeed",
+        "name":["换行符","删除<br>换行符"],
+        "StrAlter":["\\n",""],
+        "BtnClass":["configBtn_Default","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_DeleteEmpty",
+        "name":["删除<br>制表符","删除<br>空格"],
+        "StrAlter":[" ",""],
+        "BtnClass":["configBtn_Default","configBtn_Chinese"],
+        "Wheel":0,
+        "Notes":""
+    },{
+        "ID":"Str_ReduceEmpty",
+        "name":["空格<br>去重","空格<br>去重"],
+        "StrAlter":["  "," "],
+        "BtnClass":["configBtn_Default","configBtn_Chinese"],
+        "Wheel":1,
+        "Notes":""
+    }
+    ]
+}

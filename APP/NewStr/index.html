@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符替换</title>
+    <script>
+        //【主页】主页退出APP提示在按一次退出程序
+        document.addEventListener('plusready', function(a) {
+            var first = null;
+            plus.key.addEventListener('backbutton', function() {
+                //首次按键，提示‘再按一次退出应用’
+                if (!first) {
+                    first = new Date().getTime();
+                    plus.nativeUI.toast( "再按一次退出程序");
+                    setTimeout(function() {
+                        first = null;
+                    }, 1000);
+                } else {
+                    console.log(1);
+                    if (new Date().getTime() - first < 1000) {
+                        plus.runtime.quit();
+                    }
+                }
+            }, false);
+        });
+    </script>
+    <!-- 引入自定义库 -->
+    <script src="./RelyFile/WenDIY_ClassicEdition_v1.0.00.js"></script>
+    <!-- 引入字体包 -->
+    <link rel="stylesheet" href="./CSS/Font_Style/index.css">
+    <!-- 引用可复用方式 -->
+    <link rel="stylesheet" href="./Style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+            background-color: antiquewhite;
+            font-size: 20px;
+            font-family: "宋体";
+        }
+        #Main{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        /* 输入板块 */
+        #InPut{
+            padding: 0px;
+            display: flex;
+            height: 200px;
+            display: flex;
+            flex-direction: row;
+        }
+        #No_1{
+            height: 75%;
+            margin: 5px 0px 5px 5px;
+            padding: 15px;
+            display: flex;
+            flex: 4;
+            border: 1px solid black;
+            border-radius: 30px;
+        }
+        /* 功能板块 */
+        #No_2{
+            padding: 5px 1px;
+            display: flex;
+            flex: 2;
+            flex-direction: column;
+        }
+        #No_2 button{
+            margin: 5px 12px 2px;
+            padding: 8px 3px;
+            font-size: 80%;
+            font-family: "方正呐喊字体";
+        }
+        /* 输入字符编辑板块 */
+        #InputTextEdit{
+            font-size: 80%;
+            margin: 0px 0px 5px;
+            /* background-color: darkcyan; */
+            display: flex;
+            flex-direction: row;
+
+        }
+        #InputTextEdit button{
+            padding: 2px 10px;
+            margin: 0px 5px;
+        }
+        /* 专业配置板块 */
+        #No_3{
+            background-color: #4CAF50;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            padding: 10px;
+            font-size: 60%;
+        }
+        #No_3 button{
+            height: 50px;
+            padding: 5px;
+            font-size: 90%;
+            float: left;
+            margin: 4px 3px;
+        }
+        /* 输出板块 */
+        #OutPut{
+            display: flex;
+            flex-direction: column;
+            flex: 5;
+            overflow: scroll;
+        }
+        #No_4{
+            padding: 10px;
+            font-size: 70%;
+            white-space:pre-wrap; /* css3.0 */ 
+            white-space:-moz-pre-wrap; /* Firefox */ 
+            white-space:-pre-wrap; /* Opera 4-6 */ 
+            white-space:-o-pre-wrap; /* Opera 7 */ 
+            word-wrap:break-word; /* Internet Explorer 5.5+ */ 
+        }
+        .configBtn_Default {  
+            min-width: 70px;
+            background-color: #2b8fe6;  
+            border: 2px solid rgb(0, 0, 0);  
+            color: white;  
+            border-radius: 5px;  
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.2);  
+        } 
+        .configBtn_English {  
+            min-width: 70px;
+            background-color: #4CAF50;  
+            border: 2px solid white;  
+            color: d;  
+            border-radius: 5px;  
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.2);  
+        }
+        .configBtn_Chinese {  
+            min-width: 70px;
+            background-color: red;  
+            border: 2px solid black;  
+            color: white;  
+            border-radius: 5px;  
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.2);  
+        } 
+        .configBtn_Default:hover, .configBtn_English:hover, .configBtn_Chinese:hover {    
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2), 0 10px 15px rgba(0,0,0,0.3);    
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="Main">
+        <!-- 输入部分 -->
+        <div id="InPut">
+            <textarea id="No_1" placeholder="请输入需要转换的内容！"></textarea>
+            <div id="No_2">
+                <button class="box" oncontextmenu="Initialization()" onclick="MaskDisplay(true)">APP说明</button>
+                <button class="box" onclick="FormatOptimize()">格式优化</button>
+                <button class="box" onclick="majorConvert()">专业转换</button>
+                <button id="BtnOrdinary" class="box" onclick="ordinaryConvert()" oncontextmenu="changeDirection()">普通转换<br>to English</button>
+            </div>
+        </div>
+        <!-- 输入字符编辑板块 -->
+        <div id="InputTextEdit">
+            <h4>文本操作：</h4>
+            <button class="box" id="BtnSelectAll">全选</button>
+            <button class="box" id="BtnCleanPaste">清除并粘贴</button>
+            <button class="box" id="BtnCleanText">清空</button>
+        </div>
+        <!-- 第三部分 -->
+        <div id="No_3" style="overflow: scroll;">
+            <h2 style="width: 50px; margin-right: 15px; text-shadow: 3px 3px 3px greenyellow;">配置<br>项目</h2>
+            <div style="float: left;">
+                <div  id="RenderingLabel" style="float: left;">
+                    <button class="configBtn_English">数</button>
+                    <button class="configBtn_Chinese">据</button>
+                    <button class="configBtn_English">加</button>
+                    <button class="configBtn_Chinese">载</button>
+                    <button class="configBtn_English">失</button>
+                    <button class="configBtn_Chinese">败</button>
+                    <button class="configBtn_English">……</button>
+                </div>
+            </div>
+        </div>
+        <!-- 第四部分 -->
+        <div id="OutPut">
+            <pre id="No_4" class="Copy">
+
+
+
+        等待输入中……
+
+        (\_/)
+        ( ･-･)
+        /っ❤️
+            </pre>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+
+    <!-- ------------------------------- 遮罩层 - 开始 ------------------------------- -->
+    <!-- 遮罩层（弹窗主体） -->
+    <div id="MaskNotification" onclick="MaskDisplay(false)">
+        <div id="Mask_Main" onclick="event.stopPropagation();">     <!-- 阻止冒泡行为 -->
+            <h1>APP使用说明</h1><br>
+            <h6>
+                1 、专业转换前，需要在配置选项中配置好转换内容！<br><br>
+                2 、点击"专业转换"之后，配置选项将保存到本地！<br><br>
+                3 、“普通转换”功能默认是“to English”状态，长按可切换至“to Chinese”状态！<br><br>
+                4 、转换结果展示的pre标签可通过双击操作，快速将value值复制到剪贴板！<br><br>
+            </h6><br>
+            <h3>APP配置修改：</h3><br>
+            <button id="TextSize">APP 字体大小</button>
+            <button id="CopyData">复制配置数据</button>
+            <button id="ShowData">展示配置数据</button>
+            <button id="DefaultData">配置数据初始化</button>
+        </div>
+    </div>
+
+    <!-- 遮罩层样式 -->
+    <style>
+        #MaskNotification{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.419);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #Mask_Main{
+            width: 70%;
+            height: 60%;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: skyblue;
+            border: 1px solid black;
+            box-shadow: 5px 5px 10px rgb(0,0,0,100%);
+            overflow: scroll;
+        }
+
+        #Mask_Main button{
+            padding: 5px 20px;
+            margin-bottom: 10px;
+            background-color: rgb(0,0,0,10%);
+            border-radius: 10px;
+            border: none;
+            box-shadow: -3px -3px rgb(0,0,0,5%);
+        }
+        #Mask_Main button:hover{
+            box-shadow: -1px -1px 3px 1px rgb(0,0,0,60%);
+        }
+    </style>
+
+    <!-- 遮罩层 - JavaScript脚本 -->
+    <script>
+        /* 设置遮罩层的隐藏与显示 */
+        function MaskDisplay(Boole){
+            if(Boole){
+                document.querySelector("#MaskNotification").style.display = "flex"
+            }else{
+                document.querySelector("#MaskNotification").style.display = "none"
+            }
+        }
+        MaskDisplay(false)
+
+        /* ---------- 【Btn】APP字体大小 ---------- */
+        TextSize.onclick = function(){
+            let TextSize = prompt(`请输入app字体大小（数据类型 Num）：
+ -> 建议字体大小：20px
+ -> 当前字体大小：${LocalStorageConfigure.Setup.TextSize}`) + "px";
+            console.log(TextSize);
+            document.body.style.fontSize = TextSize;
+            // 将更新的数据进行修改并保存到localStorage本地存储！
+            LocalStorageConfigure.Setup.TextSize = TextSize;
+            localStorage.setItem("AppConfigure",JSON.stringify(LocalStorageConfigure));
+        }
+        
+        /* ---------- 【Btn】复制配置数据 ---------- */
+        CopyData.onclick = function(){
+            let CopyTextTemp = JSON.stringify(LocalStorageConfigure);
+            // console.log(CopyTextTemp);
+            CopyText(CopyTextTemp);
+            PromptInformation("success","复制成功！")
+        }
+
+        /* ---------- 【Btn】展示配置数据 ---------- */
+        ShowData.onclick = function(){
+            let ShowTextTemp = JSON.stringify(LocalStorageConfigure, null, 4);
+            document.querySelector("#No_4").innerText = ShowTextTemp;
+            PromptInformation("success","加载完成！")
+        }
+
+        /* ---------- 【Btn】配置数据初始化 ---------- */
+        DefaultData.onclick = function(){
+            localStorage.removeItem("AppConfigure")      /* 清理本地存储（测试） */
+            location.reload()   // 刷新浏览器！
+        }
+
+    </script>
+    <!-- ------------------------------- 遮罩层 - 结束 ------------------------------- -->
+
+    <!-- 字体样式放在最后进行渲染，防止字体的渲染卡住整体加载进程！ -->
+    <style>
+        #InputTextEdit{
+            font-family: "方正呐喊字体";
+        }
+        #InputTextEdit button{
+            font-family: "方正呐喊字体";
+        }
+        #Mask_Main button,#Mask_Main h1,#Mask_Main h3{
+            font-family: "方正呐喊字体";
+        }
+        #No_3 h2{
+            font-family: "方正呐喊字体";
+        }
+    </style>
+</body>
+</html>
+
+
+
+
