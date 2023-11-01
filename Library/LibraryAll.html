@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr.温のLibrary</title>
+    <!-- 引入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* font-family: "宋体"; */
+        }
+        body{
+            background-color: rgb(251, 224, 152);
+            margin: 10px;
+            padding: 10px 12px 10px 25px;
+            border: 3px dotted salmon;
+        }
+        h4{
+
+        }
+        button{
+            padding: 2px 6px;
+            border-radius: 8px;
+        }
+        a{
+            text-decoration: none;
+            color: red;
+        }
+        p{
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <h4>【稳定版】WenDIY_ClassicEditio（异步处理）：</h4>
+            <li v-for="(item,index) in ClassicEditionList">
+                <span>{{ index+1 }} 、</span>
+                <a :href="item.hyperlink">{{ item.name}}</a>
+                <button @click="CopyText(item.hyperlink,event)">复制地址</button>
+                <p>{{ item.PS }}</p>
+                <a v-show="item.Demo != ''" :href="item.Demo"><button>项目演示</button></a>
+            </li>
+
+            <br>
+            <br>
+
+            <h4>【开发版】WenDIY_ClassicEditio（同步处理）：</h4>
+            <li v-for="(item,index) in DevelopmentList">
+                <span>{{ index+1 }} 、</span>
+                <a :href="item.hyperlink">{{ item.name}}</a>
+                <button @click="CopyText(item.hyperlink,event)">复制地址</button>
+                <p>{{ item.PS }}</p>
+                <a v-show="item.Demo != ''" :href="item.Demo"><button>项目演示</button></a>
+            </li>
+
+            <br>
+            <br>
+
+            <h4>【Min版】NativeJS（原生JavaScript）：</h4>
+            <li v-for="(item,index) in NativeJSList">
+                <span>{{ index+1 }} 、</span>
+                <a :href="item.hyperlink">{{ item.name}}</a>
+                <button @click="CopyText(item.hyperlink,event)">复制地址</button>
+                <p>{{ item.PS }}</p>
+                <a v-show="item.Demo != ''" :href="item.Demo"><button>项目演示</button></a>
+            </li>
+
+            <br>
+            <br>
+
+            <h4>【其他项目】OtherProject ：</h4>
+            <li v-for="(item,index) in OtherProject">
+                <span>{{ index+1 }} 、</span>
+                <a :href="item.hyperlink">{{ item.name}}</a>
+                <button @click="CopyText(item.hyperlink,event)">复制地址</button>
+                <p>{{ item.PS }}</p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            ClassicEditionList:[
+                {
+                    name:"WenDIY_ClassicEdition_v1.0.00.js",
+                    hyperlink:"https://wen-c-j.github.io/Library/ClassicEdition/WenDIY_ClassicEdition_v1.0.00.js",
+                    Demo:"https://wen-c-j.github.io/Library/ClassicEdition/使用说明 - Demo/WenDIY_ClassicEdition_v1.0.00 - 说明Demo.html",
+                    PS:"稳定版 1.0.00，初始版功能函数封装库！"
+                },
+                {
+                    name:"WenDIY_ClassicEdition_v1.1.00.js",
+                    hyperlink:"https://wen-c-j.github.io/Library/ClassicEdition/WenDIY_ClassicEdition_v1.1.00.js",
+                    Demo:"https://wen-c-j.github.io/Library/ClassicEdition/使用说明 - Demo/WenDIY_ClassicEdition_v1.1.00 - 说明Demo.html",
+                    PS:"版本进行优化（未完成）！"
+                },
+            ],
+            DevelopmentList:[
+                {name:"WenDIY_Development_v1.0.00.js",
+                hyperlink:"https://wen-c-j.github.io/Library/Development/WenDIY_Development_v1.0.00.js",
+                Demo:"",
+                PS:"开发版 1.0.00 ，采用的是同步处理的方式，在一些特殊情况下使用当前版本，但是会对网页的加载造成一些阻塞！"},
+            ],
+            NativeJSList:[
+                {name:"WenDIY_Development_v1.0.00.js",
+                hyperlink:"https://wen-c-j.github.io/Library/NativeJS/WenDIY_NativeJS_v1.0.00.js",
+                Demo:"https://wen-c-j.github.io/Library/NativeJS/使用说明 - Demo/WenDIY_NativeJS_v1.0.00 - 说明Demo.html",
+                PS:"Min版 1.0.00，采用原生JavaScript的方式写的封装库，未调用第三方库，并且在以上两个版本进行了简化，使得这个库没有那么臃肿，使得这个版本在加载以及运行速度上有所提升！"},
+            ],
+            OtherProject:[
+                {name:"Mr.温 - 首页（GitHub版）",hyperlink:"https://wen-c-j.github.io/HTML/index.html",PS:"Mr.温的个人主页，项目已上传到GitHub平台进行托管！"},
+                {name:"猜数字小游戏",hyperlink:"https://wen-c-j.github.io/HTML/Website_Subsite/Game/Game.html",PS:"猜数字的一个小游戏！"},
+                {name:"New Str",hyperlink:"https://wen-c-j.github.io/APP/NewStr/",PS:"功能类网站，用于处理OR字符识别错误的内容！"},
+                {name:"参数版 404 网页",hyperlink:"https://wen-c-j.github.io/API/DIYHTML/Float_404/404.html?Hello!&I'm Mr.温！",PS:"传参版网页，可以将参数以查询字符串的形式追加在超链接后面，网页将会对超链接后面的数据在页面中进行渲染！"},
+                {name:"网页重定向（WebJump）",hyperlink:"https://wen-c-j.github.io/API/WebJump/index.html?request=Wen_GitHUB",PS:"传参版网页，通过修改request的值对网页进行重定向！"},
+                {name:"流量消失器",hyperlink:"https://wen-c-j.github.io/APP/FlowVanisher/index.html",PS:"功能类网站，通过消耗定向流量完成移动卡的流量追杀令任务！"},
+                {name:"Swiper - 手牌展示",hyperlink:"https://wen-c-j.github.io/APP/HandCard/index.html",PS:"展示类网站，通过手牌的方式展示网页，可以更高效的选择网页，并可以在卡牌的表面做简单的介绍！（测试项目，并未完成！）"},
+                {name:"闪链",hyperlink:"https://wen-c-j.github.io/APP/LightningHyperlink/index.html",PS:"功能类网站，类似于浏览器的网站收藏夹功能，通过LocalStorage的形式对数据进行存储，并具备数据导出以及导入的功能！"},
+                {name:"待开发……",hyperlink:"#",PS:"新项目正在筹备当中 ！！！"},
+                {name:"待开发……",hyperlink:"#",PS:"新项目正在筹备当中 ！！！"},
+            ]
+        },
+        methods: {
+            /* ---------------- 自定义复制函数封装 ---------------- */
+            CopyText: function (str,event) {
+                const el = document.createElement('textarea');
+                el.value = str;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                event.target.innerHTML= "复制完成";
+                event.target.style.backgroundColor = "rgb(41,190,96)";
+            }
+        }
+    })
+    </script>
+</body>
+</html>
