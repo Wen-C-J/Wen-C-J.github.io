@@ -1,3 +1,7 @@
 参数版网页：
+
 1 、Float404
 【格式】https://wen-c-j.github.io/API/DIYHTML/Float_404/404.html?Hello!&I'm Mr.温！
+
+2 、BounceLove
+【格式】https://wen-c-j.github.io/API/DIYHTML/BounceLove/index.html?name=名字
