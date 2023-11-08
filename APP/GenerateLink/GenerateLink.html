@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超链接 - 生成器！</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border-radius: 30px;
+        }
+        body{
+            padding: 20px;
+            background-color: bisque;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: space-around; */
+            align-items: center;
+        }
+        input{
+            padding: 8px 15px;
+            margin: 5px;
+        }
+        button{
+            padding: 3px 10px;
+            margin: 5px;
+        }
+        pre{
+            width: 80%;
+            height: 50px;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: floralwhite;
+            border: 3px dashed black;
+            overflow: auto; /* 超出部分显示滚动条 */  
+            white-space: normal; /* 内容自动换行 */  
+        }
+        a{
+            padding: 3px 10px;
+            margin: 5px;
+            text-decoration: none;
+            border: 1px solid black;
+        }
+        .Center{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="Center">
+        <input type="text" id="InPut" placeholder="输入ing">
+        <button onclick="BtnTransform()">转换</button>
+    </div>
+    <pre id="Show">等待输入…………</pre>
+    <div class="Center">
+        <a href="#" id="Preview" style="display: none;">效果预览</a>
+        <button onclick="BtnCopy()" id="BtnCopyA" style="display: none;">复制超链接</button>
+    </div>
+    <script>
+        var InputValue = ""     // 用于记录InPut编辑框的值
+
+        /* ----------- 转换函数 ----------- */
+        function MonitoringConversion(Str){
+            // 存放使用者的需求
+            let TempData = `https://wen-c-j.github.io/API/DIYHTML/BounceLove/index.html?name=${Str}`
+            document.querySelector("#Preview").href = TempData
+            // 存放转换后的结果！
+            let TempResults = document.querySelector("#Preview").href
+            // 展示渲染<p>标签
+            document.querySelector("#Show").innerHTML = TempResults
+            
+        }
+        /* --------- 复制（自定义版） --------- *//*
+        【功能】复制指定内容！
+        【传入参数】str ：要复制的内容！
+        【返回值】无返回值，追求自定义性强的原则
+        */
+        function CopyText(str) {
+            const el = document.createElement('textarea');
+            el.value = str;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+        }
+
+        /* -------- 监听输入事件 -------- */
+        document.querySelector("#InPut").oninput = function(){
+            InputValue = document.querySelector("#InPut").value
+            if(InputValue === ''){
+                document.querySelector("#Show").innerHTML = '等待输入…………';
+                document.querySelector("#Preview").style.display = 'none';
+                document.querySelector("#BtnCopyA").style.display = 'none';
+                return ;
+            }else{
+                document.querySelector("#Preview").style.display = '';
+                document.querySelector("#BtnCopyA").style.display = '';
+                document.querySelector("#BtnCopyA").style.backgroundColor = 'white';
+                document.querySelector("#BtnCopyA").style.color = 'black';
+            }
+            MonitoringConversion(InputValue);
+        }
+        
+        /* -------- 按钮转换(点击)事件 -------- */
+        function BtnTransform(){
+            InputValue = document.querySelector("#InPut").value
+            MonitoringConversion(InputValue);
+        }
+        
+        /* -------- 复制超链接按钮 -------- */
+        function BtnCopy(){
+            // 【按钮】点击反馈（修改按钮属性）
+            let BtnCopyA = document.querySelector("#BtnCopyA")
+                BtnCopyA.style.color = "white"
+                BtnCopyA.style.backgroundColor = "rgb(103,194,58)"
+                BtnCopyA.innerHTML = "复制完成！"
+                
+            // 复制超链接到剪贴板！
+            CopyText(document.querySelector('#Preview').href);
+        }
+
+
+        // 页面加载完成时，编辑框自动获取焦点！
+        window.onload = function() {  
+            document.getElementById("InPut").focus();  
+        };  
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

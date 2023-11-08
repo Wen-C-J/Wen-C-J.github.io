@@ -42,7 +42,7 @@
                 <span>{{ index+1 }} 、</span>
                 <a :href="item.hyperlink">{{ item.name}}</a>
                 <button @click="CopyText(item.hyperlink,event)">复制地址</button>
-                <p>{{ item.PS }}</p>
+                <p style="white-space: pre-line;">{{ item.PS }}</p>
                 <a v-show="item.Demo != ''" :href="item.Demo"><button>项目演示</button></a>
             </li>
 
@@ -53,7 +53,7 @@
                 <span>{{ index+1 }} 、</span>
                 <a :href="item.hyperlink">{{ item.name}}</a>
                 <button @click="CopyText(item.hyperlink,event)">复制地址</button>
-                <p>{{ item.PS }}</p>
+                <p style="white-space: pre-line;">{{ item.PS }}</p>
                 <a v-show="item.Demo != ''" :href="item.Demo"><button>项目演示</button></a>
             </li>
 
@@ -64,7 +64,7 @@
                 <span>{{ index+1 }} 、</span>
                 <a :href="item.hyperlink">{{ item.name}}</a>
                 <button @click="CopyText(item.hyperlink,event)">复制地址</button>
-                <p>{{ item.PS }}</p>
+                <p style="white-space: pre-line;">{{ item.PS }}</p>
                 <a v-show="item.Demo != ''" :href="item.Demo"><button>项目演示</button></a>
             </li>
 
@@ -75,7 +75,7 @@
                 <span>{{ index+1 }} 、</span>
                 <a :href="item.hyperlink">{{ item.name}}</a>
                 <button @click="CopyText(item.hyperlink,event)">复制地址</button>
-                <p>{{ item.PS }}</p>
+                <p style="white-space: pre-line;">{{ item.PS }}</p>
             </li>
         </ul>
     </div>
@@ -96,7 +96,7 @@
                     name:"WenDIY_ClassicEdition_v1.1.00.js",
                     hyperlink:"https://wen-c-j.github.io/Library/ClassicEdition/WenDIY_ClassicEdition_v1.1.00.js",
                     Demo:"https://wen-c-j.github.io/Library/ClassicEdition/使用说明 - Demo/WenDIY_ClassicEdition_v1.1.00 - 说明Demo.html",
-                    PS:"版本进行优化（未完成）！"
+                    PS:"稳定版本 1.1.00，基于1.0.00版本做出一下优化：\n1) 设置阻止右击默认事件为关闭状态\n2) 优化禁止选择功能！（所有button和ProhibitSelection样式不可选中）) "
                 },
             ],
             DevelopmentList:[
@@ -117,6 +117,7 @@
                 {name:"New Str",hyperlink:"https://wen-c-j.github.io/APP/NewStr/",PS:"功能类网站，用于处理OR字符识别错误的内容！"},
                 {name:"参数版 404 网页",hyperlink:"https://wen-c-j.github.io/API/DIYHTML/Float_404/404.html?Hello!&I'm Mr.温！",PS:"传参版网页，可以将参数以查询字符串的形式追加在超链接后面，网页将会对超链接后面的数据在页面中进行渲染！"},
                 {name:"参数版 跳动的爱心",hyperlink:"https://wen-c-j.github.io/API/DIYHTML/BounceLove/index.html?name=名字",PS:"传参版网页，可以将参数以查询字符串的形式追加在超链接后面，网页将会对超链接后面的数据在页面中进行渲染！"},
+                {name:"【DIY】参数定制版Web网页",hyperlink:"https://wen-c-j.github.io/APP/GenerateLink/GenerateLink.html",PS:"通过在编辑框传入参数，自动将参数通过查询字符串的方式拼接在超链接后，生成定制版网页！"},
                 {name:"网页重定向（WebJump）",hyperlink:"https://wen-c-j.github.io/API/WebJump/index.html?request=Wen_GitHUB",PS:"传参版网页，通过修改request的值对网页进行重定向！"},
                 {name:"流量消失器",hyperlink:"https://wen-c-j.github.io/APP/FlowVanisher/index.html",PS:"功能类网站，通过消耗定向流量完成移动卡的流量追杀令任务！"},
                 {name:"Swiper - 手牌展示",hyperlink:"https://wen-c-j.github.io/APP/HandCard/index.html",PS:"展示类网站，通过手牌的方式展示网页，可以更高效的选择网页，并可以在卡牌的表面做简单的介绍！（测试项目，并未完成！）"},

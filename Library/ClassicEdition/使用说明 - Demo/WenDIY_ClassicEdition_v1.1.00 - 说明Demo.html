@@ -4,16 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WenDIY_ClassicEdition - Demo</title>
-    <!-- <script src="https://wen-c-j.github.io/Library/ClassicEdition/WenDIY_ClassicEdition_v1.1.00.js"></script> -->
-    <script src="./../WenDIY_ClassicEdition_v1.1.00.js"></script>
-
-    <!-- <style>
-        button{
-            user-select: none; 
-        }
-    </style> -->
-
+    <title>WenDIY_ClassicEdition-v1.1.00 - Demo</title>
+    <script src="https://wen-c-j.github.io/Library/ClassicEdition/WenDIY_ClassicEdition_v1.1.00.js"></script>
 </head>
 <body>
     <button onclick="PromptInformation('success','你好！')">右上角弹窗</button>
@@ -22,7 +14,8 @@
     <button onclick="CopyText('你好，我是WenCJ！（复制成）')">点击复制自定义内容！</button>
     <br><br>
     <button onclick="PromptInformation('success',randomNum(0,100))">产生随机数</button>
-    <br><br>
+    <br>
+    <p class="ProhibitSelection">默认Button标签和ProhibitSelection样式标签禁止被选中！<br>（userSelect = 'none'）</p>
     <p class="graduallyText" style="background-color: darkorange;">你好，我是Mr.温！很高兴能够在此认识你！</p>
     <p class="graduallyText" >Mr.温 相信，美好的事情即将发生！</p>
 
@@ -43,7 +36,7 @@
         3 、产生随机数
             【格式】randomNum(最大值,最小值)
             【函数返回值】产生指定范围的随机数！
-        4 、禁止文本选中（默认开启！）
+        4 、禁止文本选中（默认关闭（注释）！）
 
     【类功能介绍】
         【类功能的使用方式】直接在标签中添加对应功能的类名

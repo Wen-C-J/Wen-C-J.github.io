@@ -4,15 +4,13 @@
 // 创建link标签
 var link = document.createElement('link');
 link.rel = 'stylesheet';
-// link.href = 'https://wen-c-j.github.io/Library/ClassicEdition/MatchedFile/WenDIY_ClassicEdition_v1.1.00/sweetalert2.min.css';
-link.href = 'https://wen-c-j.github.io/Library/ClassicEdition/MatchedFile/WenDIY_ClassicEdition_v1.0.00/sweetalert2.min.css';
+link.href = 'https://wen-c-j.github.io/Library/ClassicEdition/MatchedFile/WenDIY_ClassicEdition_v1.1.00/sweetalert2.min.css';
 // 将link标签添加到head中
 document.getElementsByTagName('head')[0].appendChild(link);
 // 创建script标签
 var script = document.createElement('script');
 script.type = 'text/javascript';
-// script.src = 'https://wen-c-j.github.io/Library/ClassicEdition/MatchedFile/WenDIY_ClassicEdition_v1.1.00/sweetalert2.min.js';
-script.src = 'https://wen-c-j.github.io/Library/ClassicEdition/MatchedFile/WenDIY_ClassicEdition_v1.0.00/sweetalert2.min.js';
+script.src = 'https://wen-c-j.github.io/Library/ClassicEdition/MatchedFile/WenDIY_ClassicEdition_v1.1.00/sweetalert2.min.js';
 // 将script标签添加到head中
 document.getElementsByTagName('head')[0].appendChild(script);
 
@@ -75,20 +73,17 @@ function randomNum(minNum,maxNum){
     switch(arguments.length){ 
         case 1: 
             return parseInt(Math.random()*minNum+1,10); 
-        break; 
         case 2: 
             return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
-        break; 
             default: 
                 return 0; 
-            break; 
     } 
 } 
 
 /* ----------------------- 阻止右击的默认行为 ----------------------- *//*
     【功能】阻止右击的默认行为！
 */
-document.addEventListener('contextmenu', event => event.preventDefault());
+// document.addEventListener('contextmenu', event => event.preventDefault());
 
 
 
@@ -155,23 +150,14 @@ window.addEventListener('load', function () {
         }
     }
     
-    /* ------------------- 页面内所有标签不可被选中（默认关闭） ------------------- *//* 
-    【功能】将网页内的所有标签的属性设置成不可选中
+    /* --------------- Button标签和ProhibitSelection样式不可被选中 --------------- *//*
+    【功能】将网页内的所有button和带ProhibitSelection样式的标签属性设置成不可选中
     */
-    // const elements = document.getElementsByTagName('*');
-    // for (let i=0; i<elements.length; i++) {
-    //     elements[i].setAttribute('unselectable', 'on');
-    //     elements[i].setAttribute('draggable', 'false');
-    //     elements[i].onselectstart = function() { return false; };
-    //     elements[i].onmousedown = function() { return false; };
-    // }
-    
-    /* ------------------- 页面内Button标签不可被选中 ------------------- *//* 
-    【功能】将网页内的所有button标签的属性设置成不可选中
-    */
-    var buttons = document.querySelectorAll('button');  
-    for (var i = 0; i < buttons.length; i++) {  
-        buttons[i].style.userSelect = 'none';  
+    var Style_ProhibitSelection = document.querySelectorAll('.ProhibitSelection');
+    var ButtonS = document.querySelectorAll('button');
+    var DomLabelList = [...Style_ProhibitSelection,...ButtonS]
+    for (var i = 0; i < DomLabelList.length; i++) {  
+        DomLabelList[i].style.userSelect = 'none';  
     }
 
     /* --------------- 标签内容逐字输出特效 - Class样式版 --------------- *//* 
@@ -193,6 +179,4 @@ window.addEventListener('load', function () {
         element.style.userSelect = "auto";      // 常识接触无法选中的限制（失败）
         element.innerHTML = FormatDocument(element.innerHTML)
     });
-
-
 });

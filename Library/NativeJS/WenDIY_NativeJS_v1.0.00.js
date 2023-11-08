@@ -40,7 +40,7 @@ function randomNum(minNum,maxNum){
 /* ----------------------- 阻止右击的默认行为 ----------------------- *//*
     【功能】阻止右击的默认行为！
 */
-document.addEventListener('contextmenu', event => event.preventDefault());
+// document.addEventListener('contextmenu', event => event.preventDefault());
 
 
 
@@ -106,15 +106,14 @@ window.addEventListener('load', function () {
         }
     }
     
-    /* ------------------- 页面内所有标签不可被选中 ------------------- *//* 
-    【功能】将网页内的所有标签的属性设置成不可选中
+    /* --------------- Button标签和ProhibitSelection样式不可被选中 --------------- *//*
+    【功能】将网页内的所有button和带ProhibitSelection样式的标签属性设置成不可选中
     */
-    const elements = document.getElementsByTagName('*');
-    for (let i=0; i<elements.length; i++) {
-        elements[i].setAttribute('unselectable', 'on');
-        elements[i].setAttribute('draggable', 'false');
-        elements[i].onselectstart = function() { return false; };
-        elements[i].onmousedown = function() { return false; };
+    var Style_ProhibitSelection = document.querySelectorAll('.ProhibitSelection');
+    var ButtonS = document.querySelectorAll('button');
+    var DomLabelList = [...Style_ProhibitSelection,...ButtonS]
+    for (var i = 0; i < DomLabelList.length; i++) {  
+        DomLabelList[i].style.userSelect = 'none';  
     }
 
     /* --------------- 标签内容逐字输出特效 - Class样式版 --------------- *//* 
