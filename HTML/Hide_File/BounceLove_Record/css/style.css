@@ -1,0 +1,25 @@
+body {
+  background: rgb(255,255,255);
+  overflow: hidden;
+  margin: 0;
+  /* background-color: #000 !important; */
+  font-size: 12px;    /* 设置全局字体大小 */
+}
+
+@font-face {
+  font-family: "WenDIY_FontStyle";     /*  自定义字体样式名称 */
+  src: url(./Font_Style/FontPackage_Chinese.TTF);   /* 自定义字体包文件地址 */
+}
+
+.Show {
+  width: 50%;
+  position: fixed; /* 固定定位，使遮罩层悬浮在顶部 */  
+  top: 0;  
+  left: 15%;  
+  padding: 3em 10em; /* 内边距，注意这里我改为了10px，因为30em可能太大了 */
+  font-family: "WenDIY_FontStyle";     /* 引用自定义字体包*/
+  font-size: 0.9em;   /* 在全局定义的字体大小下，按0.2的比例缩小字体*/
+  color: white;
+  /* background: black; */
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */  
+}
